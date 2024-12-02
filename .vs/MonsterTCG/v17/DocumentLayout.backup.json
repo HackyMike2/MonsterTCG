@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|c:\\users\\froeh\\source\\repos\\monstertcg\\monstertcg\\monstercard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\monstercard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|c:\\users\\froeh\\source\\repos\\monstertcg\\monstertcg\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|c:\\users\\froeh\\source\\repos\\monstertcg\\monstertcg\\listmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\listmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|c:\\users\\froeh\\source\\repos\\monstertcg\\monstertcg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|c:\\users\\froeh\\source\\repos\\monstertcg\\monstertcg\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F566321-9296-4BE2-9BF4-C3F7D6D8D1BE}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MonsterCard.cs",
+              "DocumentMoniker": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\MonsterCard.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\MonsterCard.cs",
+              "ToolTip": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\MonsterCard.cs",
+              "RelativeToolTip": "MonsterTCG\\MonsterCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T19:09:20.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\Card.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\Card.cs",
+              "ToolTip": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\Card.cs",
+              "RelativeToolTip": "MonsterTCG\\Card.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T18:39:12.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ListMaster.cs",
+              "DocumentMoniker": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\ListMaster.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\ListMaster.cs",
+              "ToolTip": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\ListMaster.cs",
+              "RelativeToolTip": "MonsterTCG\\ListMaster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T18:41:11.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\User.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\User.cs",
+              "ToolTip": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\User.cs",
+              "RelativeToolTip": "MonsterTCG\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T12:20:17.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\Program.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\Program.cs",
+              "ToolTip": "C:\\Users\\froeh\\source\\repos\\MonsterTCG\\MonsterTCG\\Program.cs",
+              "RelativeToolTip": "MonsterTCG\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T12:15:05.306Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
