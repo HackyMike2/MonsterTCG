@@ -19,7 +19,7 @@ namespace MonsterTCG
 
         public static string UserRequest(string body)
         {
-            Console.WriteLine("we are in User Requests"); //DEBUG
+           // Console.WriteLine("we are in User Requests"); //DEBUG
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
             string UserName = json.GetProperty("Username").GetString();
@@ -38,7 +38,7 @@ namespace MonsterTCG
 
         public static string SessionRequest(string body) 
         {
-            Console.WriteLine("we are in User Requests"); //DEBUG
+            //Console.WriteLine("we are in User Requests"); //DEBUG
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
             string UserName = json.GetProperty("Username").GetString();
@@ -48,20 +48,20 @@ namespace MonsterTCG
             { //den bruder gibts
                 if (userSet.Password == Password)
                 {//der bruder hat die richtigen daten eingegeben
-                    Console.WriteLine("IN SESSION REQUEST. RICHTIGE DATEN EINGEGEBEN."); //DEBUG
+                    //Console.WriteLine("IN SESSION REQUEST. RICHTIGE DATEN EINGEGEBEN."); //DEBUG
                     string token = userSet.GenerateToken();
-                    Console.WriteLine("TOKEN output:"); //DEBUG
+                    //Console.WriteLine("TOKEN output:"); //DEBUG
                     string x = $"HTTP/1.1 200 -{token}";
-                    Console.WriteLine(x); //DEBUG
+                   // Console.WriteLine(x); //DEBUG
                     return x;
                 }
                 //er existiert aber falsches PW
-                return "HTTP/1.1 405 - Login failed from existing but wrong pw"; //DEBUG
+                return "HTTP/1.1 405 - Login failed from existing but wrong pw";
             }
             else 
             {
                 //diese Person existiert nicht
-                return "HTTP/1.1 405 - Login failed from not exiting user"; //DEBUG
+                return "HTTP/1.1 405 - Login failed from not exiting user";
             }
         }
 

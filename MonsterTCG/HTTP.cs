@@ -32,12 +32,12 @@ namespace MonsterTCG
                             string request = "";
 
                             request = reader.ReadLine();
-                            Console.WriteLine("Request:"); //DEBUG
-                            Console.WriteLine(request); //DEBUG
-                            Console.WriteLine("rest"); //DEBUG
+                            //Console.WriteLine("Request:"); //DEBUG
+                            //Console.WriteLine(request); //DEBUG
+                            //Console.WriteLine("rest"); //DEBUG
                             while((line = reader.ReadLine()) != null && line != string.Empty) 
                             {
-                                Console.WriteLine(line);//DEBUG!
+                               // Console.WriteLine(line);//DEBUG!
                                 if (line.StartsWith("Content-Length")) 
                                 {
                                     var parts = line.Split(':');
@@ -51,8 +51,8 @@ namespace MonsterTCG
                                 char[] buffer = new char[ContentLength];
                                 int readbytes = reader.Read(buffer,0,buffer.Length);
                                 body = new string(buffer,0,readbytes);
-                                Console.WriteLine("Body:");//Debug
-                                Console.WriteLine(body);//Debug
+                                //Console.WriteLine("Body:");//Debug
+                                //Console.WriteLine(body);//Debug
                             }
                             //give it to the handler
                             string response = Handler.HandleRequest(request,body);
