@@ -1,7 +1,7 @@
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.exe.config
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.exe
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.pdb
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.AssemblyReference.cache
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.CoreCompileInputs.cache
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.exe
-C:\Users\froeh\source\repos\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.pdb
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.AssemblyReference.cache
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.CoreCompileInputs.cache
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.exe.config
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.exe
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.pdb
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.exe
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.pdb
