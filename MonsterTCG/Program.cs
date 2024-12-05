@@ -11,8 +11,8 @@ namespace MonsterTCG
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Start of this Programm!");
-
-            Card myMonsterCard = ListMaster.getRandomCard();
+            #region debug 
+            /*Card myMonsterCard = ListMaster.getRandomCard();
             Console.Write("Damage: "); Console.WriteLine(myMonsterCard.Damage);
             Console.Write("Type: "); Console.WriteLine(myMonsterCard.Type);
             Console.Write("Name: "); Console.WriteLine(myMonsterCard.Name);
@@ -20,7 +20,6 @@ namespace MonsterTCG
             if(myMonsterCard is MonsterCard) { Console.WriteLine("this is a monsterCard!"); } //Works!
             else if(myMonsterCard is SpellCard) { Console.WriteLine("this is a spellCard!"); }
             else { Console.WriteLine("Something went wrong!"); }
-            //Console.WriteLine(myMonsterCard.GetType()); //MonsterTCG.MonsterCard mymonster Card is Card, is typeof MonsterCard and is MonsterCard, NOT Type of Card
 
             Console.WriteLine("now user");
             User myUser = new User("michael","pw");
@@ -32,9 +31,9 @@ namespace MonsterTCG
             myUser.buyPack();
             Console.WriteLine(myUser.Coins);
             Console.WriteLine(myUser.Collection.Count);
-
-
-            Console.WriteLine("Now Server start:");
+            */
+            #endregion //is commented out
+            Console.WriteLine("Server start:");
             HTTP Server = new HTTP();
             Server.startServer();
             Console.ReadKey();

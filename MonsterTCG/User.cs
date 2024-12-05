@@ -24,7 +24,7 @@ namespace MonsterTCG
             Random rnd = new Random();
             Id = rnd.Next(int.MaxValue); //temp, will be db_user_id
             UserName = name;
-            PW = Password; //plain text for now, hashed later.
+            Password = PW; //plain text for now, hashed later.
             SecurityToken = GenerateToken();
             Coins = 20;
             Elo = 100;
@@ -45,15 +45,16 @@ namespace MonsterTCG
 
         public string GenerateToken()
         {
-            Console.WriteLine("here is the Token");
-            return Guid.NewGuid().ToString();
+            //Console.WriteLine("here is the Token");
+            string token = UserName + "-mtcgToken";
+            return token;
         }
 
-        public bool CompareToken(string token1, string SecurityToken) { if (token1 == SecurityToken) { return true; } else { return false; }; } //if the User wants to do anything, and we need to check if he really is who he says he is.
+        public bool CompareToken(string token1) { if (token1 == SecurityToken) { return true; } else { return false; }; } //if the User wants to do anything, and we need to check if he really is who he says he is.
 
         public void buyPack() 
         {
-            if (CompareToken("", "")) //for later
+            if (CompareToken("")) //for later
             {
                 if(Coins >= ListMaster.Pack1_price)
                 {

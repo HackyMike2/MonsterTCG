@@ -5,7 +5,6 @@ D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\Monste
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\MonsterTCG.pdb
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.exe
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.pdb
-D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.SuggestedBindingRedirects.cache
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.exe.config
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\System.Buffers.dll
@@ -27,4 +26,4 @@ D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\System
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\System.Text.Json.xml
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\bin\Debug\System.ValueTuple.xml
-D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.Up2Date
+D:\Michael\FH\3Semester\Programmieren\TCG\MonsterTCG\MonsterTCG\obj\Debug\MonsterTCG.csproj.CopyComplete
