@@ -37,7 +37,7 @@ namespace MonsterTCG
             #endregion //is commented out
 
             #region debug2-DB Connections
-
+            //db.DBAddCardToPlayerCollection("kienboec", 9);
             //db.DBTestConnection();
             //int CardID = db.DBGetIDFromRandomCard();
             //Console.WriteLine("The Random Card ID is:{0}", CardID);
@@ -61,6 +61,10 @@ namespace MonsterTCG
             //string answer = db.getAllPacks();
             //Console.WriteLine(answer);
             //Console.WriteLine("Those are the Userdatas\nID:{0},Username:{1},PW:{2},Coins:{3},Elo:{4},Token:{5}", user.Id, user.UserName, user.Password, user.Coins.ToString(),user.Elo.ToString(),user.SecurityToken);
+            #endregion
+
+            #region TestBattle
+
             #endregion
             Console.WriteLine("Starting HTTP server...");
             HTTP Server = new HTTP();

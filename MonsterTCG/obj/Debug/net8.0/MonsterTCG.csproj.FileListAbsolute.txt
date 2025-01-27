@@ -34,3 +34,4 @@ D:\Michael\FH\3Semester\Programmieren\TCG2\MonsterTCG\MonsterTCG\obj\Debug\net8.
 D:\Michael\FH\3Semester\Programmieren\TCG2\MonsterTCG\MonsterTCG\obj\Debug\net8.0\MonsterTCG.pdb
 D:\Michael\FH\3Semester\Programmieren\TCG2\MonsterTCG\MonsterTCG\obj\Debug\net8.0\MonsterTCG.genruntimeconfig.cache
 D:\Michael\FH\3Semester\Programmieren\TCG2\MonsterTCG\MonsterTCG\obj\Debug\net8.0\ref\MonsterTCG.dll
+D:\Michael\FH\3Semester\Programmieren\TCG2\MonsterTCG\MonsterTCG\obj\Debug\net8.0\MonsterTCG.sourcelink.json

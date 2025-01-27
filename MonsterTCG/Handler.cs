@@ -15,6 +15,11 @@ namespace MonsterTCG
         private const string SHOW_PACKAGES = "POST /showpackages";
         private const string BUY_PACKAGE = "POST /package";
         private const string SCORE = "POST /score";
+        private const string USER_DATA = "POST /change";
+        private const string SHOW_DECK = "POST /showdeck";
+        private const string PROFILE = "POST /profile";
+        private const string EDIT_DECK = "POST /editdeck";
+        //show my stats = get userbyID und dann einfach user ausgeben!
 
         public static string HandleRequest(string request, string body)
         {
@@ -41,6 +46,22 @@ namespace MonsterTCG
             else if (request.StartsWith(SCORE)) 
             {
                 return GetScore(body);
+            }
+            else if (request.StartsWith(USER_DATA)) 
+            {
+                return ChangeUserData(body);
+            }
+            else if (request.StartsWith(SHOW_DECK)) 
+            {
+                return ShowDeck(body);
+            }
+            else if (request.StartsWith(PROFILE)) 
+            {
+                return ShowProfile(body);
+            }
+            else if (request.StartsWith(EDIT_DECK)) 
+            {
+                return EditDeck(body);
             }
             else 
             {
@@ -213,6 +234,94 @@ namespace MonsterTCG
             string bestPlayers = db.DBGetBestPlayers();
             return "HTTP/1.1 201 OK\n" + bestPlayers;
         }
+
+        public static string ChangeUserData(string body) 
+        {
+            JsonDocument jsonDocument = JsonDocument.Parse(body);
+            JsonElement json = jsonDocument.RootElement;
+            string Token = json.GetProperty("token").GetString();
+            int id = db.DBAuth(Token);
+            if (id >= 0)
+            {
+                try
+                {
+                    string UserName = json.GetProperty("name").GetString();
+                    db.DBChangeName(id,UserName);
+                }
+                catch { }
+                try
+                {
+                    string pw = json.GetProperty("pw").GetString();
+                    db.DBChangePassword(id, pw);
+                }
+                catch { }
+                return "HTTP/1.1 201 OK\n";
+            }
+            else 
+            {
+                return "return \"HTTP/1.1 600 - Authentication Failed";
+            }
+        }
+
+        public static string ShowProfile(string body)
+        {
+            JsonDocument jsonDocument = JsonDocument.Parse(body);
+            JsonElement json = jsonDocument.RootElement;
+            string Token = json.GetProperty("token").GetString();
+            int id = db.DBAuth(Token);
+            if (id >= 0) //Authed
+            {
+                User thisUser = db.DBgetFullUserByID(id);
+                Console.WriteLine("This user is: {0}, has:{1} elo, and {2} coins.", thisUser.UserName, thisUser.Elo.ToString(), thisUser.Coins.ToString());
+                return "HTTP/1.1 201 OK";
+            }
+            return "HTTP/1.1 600 - Authentication Failed";
+        }
+
+        public static string ShowDeck(string body) 
+        {
+            JsonDocument jsonDocument = JsonDocument.Parse(body);
+            JsonElement json = jsonDocument.RootElement;
+            string Token = json.GetProperty("token").GetString();
+            int id = db.DBAuth(Token);
+            if (id >= 0) //Authed
+            {
+                string deck = db.DBShowDeck(id);
+                return "HTTP/1.1 201 OK\n" + deck;
+            }
+            else 
+            {
+                return "HTTP/1.1 600 - Authentication Failed";
+            }
+        }
     
+        public static string EditDeck(string body)
+        {
+            JsonDocument jsonDocument = JsonDocument.Parse(body);
+            JsonElement json = jsonDocument.RootElement;
+            string Token = json.GetProperty("token").GetString();
+            int id = db.DBAuth(Token);
+            if (id >= 0) //Authed
+            {
+                try 
+                {
+                    Console.WriteLine("i am in editdeck-autzorized");
+                    JsonElement cardsElement = json.GetProperty("cards");
+                    int[] deck_cards = cardsElement.EnumerateArray().Select(card=>card.GetInt32()).ToArray();
+                    int answer = db.DBEditDeck(id, deck_cards);
+                    if(answer == 1) { return "HTTP/1.1 201 OK"; }
+                    else { return "HTTP/1.1 500 Internal Server Error"; }
+                    
+                } 
+                catch
+                {
+                    return "HTTP/1.1 500 Internal Server Error";
+                }
+            }
+
+            return "HTTP/1.1 600 - Authentication Failed";
+        }
+    
+        
     }
 }

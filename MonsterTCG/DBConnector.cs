@@ -217,10 +217,9 @@ namespace MonsterTCG
                         answer += ("Name: " + name+", cost: "+cost.ToString()+"\n");
                     }
                 }
+                connection.Close();
                 return answer;
             }
-            connection.Close();
-            return answer;
         }
 
         public int DBAuth(string token) // wenn >= 0, dann ist die Auth. durchgegangen!
@@ -286,6 +285,74 @@ namespace MonsterTCG
                 return bestPlayers;
         }
 
+        public void DBChangeName(int id,string newUsername) 
+        {
+            string querystring = "UPDATE tcguser SET username = @newname WHERE id = @id";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            Console.WriteLine("The id is{0}, and the new Username should be:{1}",id,newUsername);
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("newname",newUsername);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public string DBShowDeck(int id)
+        {
+            string deck = "Your cards in your deck are:\n";
+            string querystring = "SELECT userid, cardid FROM deck WHERE userid = @id";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("id", id);
+                var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int UserID = reader.GetInt32(reader.GetOrdinal("userid"));
+                        int CardID = reader.GetInt32(reader.GetOrdinal("cardid"));
+                        deck += DBGetCardNameByID(CardID) + "\n";
+                    }
+            }
+            connection.Close();
+            return deck;
+        }
+
+        public string DBGetCardNameByID(int id)
+        {
+            string cardname = "";
+            string queryString = "SELECT name FROM card WHERE id = @cardid;";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(queryString, connection))
+            {
+                cmd.Parameters.AddWithValue("cardid", id);
+                var reader = cmd.ExecuteReader();
+                if (reader.Read()) 
+                {
+                    cardname = reader.GetString(reader.GetOrdinal("name"));
+                }
+            }
+            connection.Close();
+            return cardname;
+        }
+
+        public void DBChangePassword(int id, string newPW)
+        {
+            string querystring = "UPDATE tcguser SET password = @newPW WHERE id = @id";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("newPW", newPW);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public int DBGetCardIdFromPack(int packid, int randomNumber)
         {
             string querystring = "SELECT cardid FROM packcontents WHERE packid = @packId LIMIT 1 OFFSET @offset";
@@ -324,7 +391,7 @@ namespace MonsterTCG
             return 0;
         }
 
-        public User getFullUser(string name) //-1 return if something went wrong
+        public User DBgetFullUserByName(string name) //-1 return if something went wrong
         {
             int id = -1;
             string Username = "";
@@ -357,6 +424,42 @@ namespace MonsterTCG
 
             }
             User user = new User(id,Username,password,coins,elo,sectoken);
+            connection.Close();
+            return user;
+        }
+
+        public User DBgetFullUserByID(int id) //-1 return if something went wrong
+        {
+            string Username = "";
+            string password = "";
+            string sectoken = "";
+            int elo = 0;
+            int coins = 0;
+            string namequery = "SELECT * FROM tcguser WHERE id = @id";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(namequery, connection))
+            {
+                cmd.Parameters.AddWithValue("id", id);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        id = reader.GetInt32(reader.GetOrdinal("id"));
+                        Username = reader.GetString(reader.GetOrdinal("username"));
+                        password = reader.GetString(reader.GetOrdinal("password"));
+                        sectoken = reader.GetString(reader.GetOrdinal("securitytoken"));
+                        elo = reader.GetInt32(reader.GetOrdinal("elo"));
+                        coins = reader.GetInt32(reader.GetOrdinal("coins"));
+                    }
+                    else
+                    {
+                        Console.WriteLine("reader failed");
+                    }
+                }
+
+            }
+            User user = new User(id, Username, password, coins, elo, sectoken);
             connection.Close();
             return user;
         }
@@ -397,6 +500,74 @@ namespace MonsterTCG
             connection.Close();
             return user;
         }
+
+        //EditDeck
+        public int DBEditDeck(int id, int[] cards) //TODO! FUNKTIONIERT NOCH NICHT 100%!!!
+        {
+            string querystring = "SELECT COUNT(*) FROM collection WHERE userid = @userid";
+            int cardcount = 0;
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("userid", id);
+                cardcount = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            if (cardcount > cards.Length && cardcount >= cards.Max())
+            {
+                Console.WriteLine("the cardcount was bigger than the length AND cardcount was bigger than the cards.Max ");
+                //step 2: delete all old tables
+                querystring = "DELETE FROM deck WHERE userid = @userid;";
+
+                using (var cmd = new NpgsqlCommand(querystring, connection))
+                {
+                    cmd.Parameters.AddWithValue("userid", id);
+                    cmd.ExecuteNonQuery();
+                }
+                //Console.WriteLine("the old cards were deleted");
+
+                //step 3: retrieve card ids.
+
+                List<int> cardIds = new List<int>();
+                querystring = "SELECT cardid FROM collection WHERE userid = @userid ORDER BY cardid LIMIT 1 OFFSET @offset";
+                foreach (int index in cards)
+                {
+                    using (var cmd = new NpgsqlCommand(querystring, connection))
+                    {
+                        cmd.Parameters.AddWithValue("userid", id);
+                        cmd.Parameters.AddWithValue("offset", index - 1);
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                cardIds.Add(reader.GetInt32(0));
+                            }
+                        }
+                    }
+                }
+                //step 3: add cards to deck
+                querystring = "INSERT INTO deck (userid, cardid) VALUES (@userId, @cardId)";
+                using (var cmd = new NpgsqlCommand(querystring, connection))
+                {
+                    cmd.Parameters.AddWithValue("userId", id);
+                    foreach(int cardId in cardIds) 
+                    {
+                        cmd.Parameters.AddWithValue("cardId", cardId);
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.RemoveAt("cardId");
+                    }
+                }
+                connection.Close();
+                return 1;
+
+            }
+            else { connection.Close(); return 0; }
+
+         return 0;
+        }
+
+
         public int DBCreatePack(string name,int cost) 
         {
             int? count;

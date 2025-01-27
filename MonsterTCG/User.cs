@@ -25,18 +25,11 @@ namespace MonsterTCG
             Random rnd = new Random();
             Id = 0;
             UserName = name;
-            Password = PW; //plain text for now, hashed later.
+            Password = PW; //plain text for now, hashed later. (i wish i had time for this)
             SecurityToken = GenerateToken();
             Coins = 20;
             Elo = 100;
-            //todo security token
             Deck = new List<Card>();
-            //Collection = new List<Card>();
-            //Collection.Add(ListMaster.getRandomCard());
-            //Collection.Add(ListMaster.getRandomCard());
-            //Collection.Add(ListMaster.getRandomCard());
-            //Collection.Add(ListMaster.getRandomCard());
-            //Deck = Collection; //gives 4 random cards and also asigns them as fighting cards
 
         }
 
