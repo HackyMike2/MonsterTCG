@@ -16,8 +16,8 @@ namespace MonsterTCG
         public int Coins { get; set; } = 20;
         public int Elo { get; set; } = 100;
         public string SecurityToken { get; set; }
-        public List<Card> Deck { get; set; } // subTable
-        public List<Card> Collection { get; set; } //subTable
+        //public List<Card> Deck { get; set; } // subTable
+        //public List<Card> Collection { get; set; } //subTable
 
 
         public User(string name, string PW) //for register
@@ -29,7 +29,7 @@ namespace MonsterTCG
             SecurityToken = GenerateToken();
             Coins = 20;
             Elo = 100;
-            Deck = new List<Card>();
+           // Deck = new List<Card>();
 
         }
 
@@ -57,7 +57,7 @@ namespace MonsterTCG
 
         public bool CompareToken(string token1) { if (token1 == SecurityToken) { return true; } else { return false; }; } //if the User wants to do anything, and we need to check if he really is who he says he is.
 
-        public void buyPack()
+       /* public void buyPack()
         {
             if (CompareToken("")) //for later
             {
@@ -68,6 +68,7 @@ namespace MonsterTCG
                 }
             }
         }
+       */
 
     }
 }

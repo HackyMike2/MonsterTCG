@@ -21,7 +21,7 @@ namespace MonsterTCG
         public override float CalculateDamage(Card opponent)
         {
             // if(Name.Contains("")) //kein guter ansatz. species wurde dafür hinzugefügt.
-            Console.WriteLine(Species.ToString()); //DEBUG!
+            //Console.WriteLine(Species.ToString()); //DEBUG!
             if (opponent is MonsterCard enemy) //Kampf gegen ein Monster
             {
                 if (Species == ListMaster.Species.Goblin && enemy.Species == ListMaster.Species.Dragon) { return 0; }

@@ -10,6 +10,7 @@ namespace MonsterTCG
     {
         public SpellCard(string name, float damage, ListMaster.Type type) : base(name, damage, type)
         {
+
         }
 
         public override float CalculateDamage(Card opponent)

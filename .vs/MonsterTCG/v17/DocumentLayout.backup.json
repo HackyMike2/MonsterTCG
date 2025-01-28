@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\battlelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\battlelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\dbconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\dbconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,35 +19,35 @@
       "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\battlelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\battlelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\http.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\http.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\spellcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\spellcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\fightlogicclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\fightlogicclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\monstercard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\monstercard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Downloads\\MonsterTCG\\MonsterTCG\\obj\\Debug\\net8.0\\MonsterTCG.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\spellcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\spellcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\listmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\listmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\http.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\http.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|d:\\michael\\fh\\3semester\\programmieren\\tcg2\\monstertcg\\monstertcg\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F409120-2794-4AAF-9AA6-57011E562439}|MonsterTCG\\MonsterTCG.csproj|solutionrelative:monstertcg\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Downloads\\MonsterTCG\\MonsterTCG\\obj\\Debug\\net8.0\\MonsterTCG.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,43 +57,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BattleLogic.cs",
-              "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\BattleLogic.cs",
-              "RelativeDocumentMoniker": "MonsterTCG\\BattleLogic.cs",
-              "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\BattleLogic.cs",
-              "RelativeToolTip": "MonsterTCG\\BattleLogic.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "FightLogicClass.cs",
+              "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\FightLogicClass.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\FightLogicClass.cs",
+              "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\FightLogicClass.cs",
+              "RelativeToolTip": "MonsterTCG\\FightLogicClass.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T16:39:03.285Z",
+              "WhenOpened": "2025-01-28T09:34:56.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\Program.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\Program.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\Program.cs",
               "RelativeToolTip": "MonsterTCG\\Program.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAEYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T16:27:40.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Handler.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\Handler.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\Handler.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\Handler.cs",
               "RelativeToolTip": "MonsterTCG\\Handler.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAAADYBAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAEwBAAAAAAAAAAAAAGYBAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T17:28:12.978Z",
               "EditorCaption": ""
@@ -97,27 +105,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BattleLogic.cs",
+              "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\BattleLogic.cs",
+              "RelativeDocumentMoniker": "MonsterTCG\\BattleLogic.cs",
+              "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\BattleLogic.cs",
+              "RelativeToolTip": "MonsterTCG\\BattleLogic.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAFIAAACzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:39:03.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "DBConnector.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\DBConnector.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\DBConnector.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\DBConnector.cs",
               "RelativeToolTip": "MonsterTCG\\DBConnector.cs",
-              "ViewState": "AgIAAOUBAAAAAAAAAAAqwAMCAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAEsBAAAAAAAAAAAqwFsBAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T15:16:48.401Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\User.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\User.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\User.cs",
               "RelativeToolTip": "MonsterTCG\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T17:29:10.415Z"
+              "WhenOpened": "2025-01-17T17:29:10.415Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -127,25 +149,27 @@
               "RelativeDocumentMoniker": "MonsterTCG\\SpellCard.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\SpellCard.cs",
               "RelativeToolTip": "MonsterTCG\\SpellCard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T17:29:00.891Z"
+              "WhenOpened": "2025-01-17T17:29:00.891Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "MonsterCard.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\MonsterCard.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\MonsterCard.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\MonsterCard.cs",
               "RelativeToolTip": "MonsterTCG\\MonsterCard.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAwB8AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T17:28:42.877Z"
+              "WhenOpened": "2025-01-17T17:28:42.877Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ListMaster.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\ListMaster.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\ListMaster.cs",
@@ -153,19 +177,21 @@
               "RelativeToolTip": "MonsterTCG\\ListMaster.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T17:28:30.71Z"
+              "WhenOpened": "2025-01-17T17:28:30.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "HTTP.cs",
               "DocumentMoniker": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\HTTP.cs",
               "RelativeDocumentMoniker": "MonsterTCG\\HTTP.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\HTTP.cs",
               "RelativeToolTip": "MonsterTCG\\HTTP.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAqwCkAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAqwF0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T17:28:19.837Z"
+              "WhenOpened": "2025-01-17T17:28:19.837Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -175,13 +201,13 @@
               "RelativeDocumentMoniker": "MonsterTCG\\Card.cs",
               "ToolTip": "D:\\Michael\\FH\\3Semester\\Programmieren\\TCG2\\MonsterTCG\\MonsterTCG\\Card.cs",
               "RelativeToolTip": "MonsterTCG\\Card.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T17:27:28.414Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "MonsterTCG.AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\User\\Downloads\\MonsterTCG\\MonsterTCG\\obj\\Debug\\net8.0\\MonsterTCG.AssemblyInfo.cs",
               "ToolTip": "C:\\Users\\User\\Downloads\\MonsterTCG\\MonsterTCG\\obj\\Debug\\net8.0\\MonsterTCG.AssemblyInfo.cs",

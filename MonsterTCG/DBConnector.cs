@@ -198,7 +198,7 @@ namespace MonsterTCG
             }
             connection.Close();
 
-            }
+        }
 
         public string getAllPacks() 
         {
@@ -321,6 +321,30 @@ namespace MonsterTCG
             return deck;
         }
 
+        public tempCard[] DBReturnAllDeckCards(int id) //needs userID!
+        {
+           // Console.WriteLine("i am in DBReturnAllDeckCards"); //DEBUG!
+            tempCard[] DeckCards = new tempCard[4];
+            int i = 0;
+            string querystring = "SELECT userid, cardid FROM deck WHERE userid = @id";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("id", id);
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int deckCardID = reader.GetInt32(reader.GetOrdinal("cardid"));
+                    DeckCards[i] = DBGetFullCardByID(deckCardID);
+                    i++;
+                }
+            }
+            connection.Close();
+            return DeckCards;
+        }
+
         public string DBGetCardNameByID(int id)
         {
             string cardname = "";
@@ -338,6 +362,31 @@ namespace MonsterTCG
             }
             connection.Close();
             return cardname;
+        }
+
+        public tempCard DBGetFullCardByID(int id) //for Fight to get all informations of a Card.
+        {
+           // Console.WriteLine("I am in DBGetFullCardByID!"); //DEBUG!!
+            tempCard tpCard = new tempCard();
+            string queryString = "SELECT * FROM card WHERE id = @cardid;";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(queryString, connection))
+            {
+                cmd.Parameters.AddWithValue("cardid", id);
+                var reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                   tpCard.id  = reader.GetInt32(reader.GetOrdinal("id"));
+                   tpCard.Name = reader.GetString(reader.GetOrdinal("name"));
+                   tpCard.Damage = reader.GetInt32(reader.GetOrdinal("Damage"));
+                   tpCard.Type = reader.GetInt32(reader.GetOrdinal("Type"));
+                   tpCard.Species = reader.GetInt32(reader.GetOrdinal("Species"));
+
+                }
+            }
+            connection.Close();
+            return tpCard;
         }
 
         public void DBChangePassword(int id, string newPW)
@@ -567,6 +616,18 @@ namespace MonsterTCG
          return 0;
         }
 
+        public void DBChangeElo(int id, int EloChange) 
+        {
+            string querystring = "UPDATE tcguser SET elo = GREATEST(0, elo + @eloChange) WHERE id = @userId";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("userId", id);
+                cmd.Parameters.AddWithValue("eloChange", EloChange);
+                cmd.ExecuteNonQuery();
+            }
+        }
 
         public int DBCreatePack(string name,int cost) 
         {

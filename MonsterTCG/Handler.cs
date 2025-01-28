@@ -8,7 +8,8 @@ namespace MonsterTCG
 {
     internal class Handler
     {
-        private static DBConnector db = new DBConnector();
+        private static DBConnector _db = new DBConnector();
+
         private const string USER_REQUEST_TEXT = "POST /users";
         private const string SESSION_REQUEST_TEXT = "POST /sessions";
         private const string CREATE_PACKAGE_TEXT = "POST /createpackage";
@@ -19,49 +20,54 @@ namespace MonsterTCG
         private const string SHOW_DECK = "POST /showdeck";
         private const string PROFILE = "POST /profile";
         private const string EDIT_DECK = "POST /editdeck";
+        private const string QUEUE = "POST /queue";
         //show my stats = get userbyID und dann einfach user ausgeben!
 
         public static string HandleRequest(string request, string body)
         {
             if (request.StartsWith(USER_REQUEST_TEXT))
             { 
-                return UserRequest(body);
+                return UserRequest(body,_db);
             }
             else if (request.StartsWith(SESSION_REQUEST_TEXT))
             { 
-                return SessionRequest(body);
+                return SessionRequest(body, _db);
             }
             else if (request.StartsWith(CREATE_PACKAGE_TEXT)) 
             {
-                return CreatePackageRequest(body);
+                return CreatePackageRequest(body, _db);
             }
             else if (request.StartsWith(SHOW_PACKAGES)) 
             {
-                return ShowPackageRequest(body);
+                return ShowPackageRequest(_db);
             }
             else if (request.StartsWith(BUY_PACKAGE)) 
             {
-                return BuyPackage(body);
+                return BuyPackage(body, _db);
             }
             else if (request.StartsWith(SCORE)) 
             {
-                return GetScore(body);
+                return GetScore(_db);
             }
             else if (request.StartsWith(USER_DATA)) 
             {
-                return ChangeUserData(body);
+                return ChangeUserData(body, _db);
             }
             else if (request.StartsWith(SHOW_DECK)) 
             {
-                return ShowDeck(body);
+                return ShowDeck(body, _db);
             }
             else if (request.StartsWith(PROFILE)) 
             {
-                return ShowProfile(body);
+                return ShowProfile(body, _db);
             }
             else if (request.StartsWith(EDIT_DECK)) 
             {
-                return EditDeck(body);
+                return EditDeck(body, _db);
+            }
+            else if (request.StartsWith(QUEUE)) 
+            {
+                return Queue(body, _db);
             }
             else 
             {
@@ -69,7 +75,7 @@ namespace MonsterTCG
             }
         }
 
-        public static string UserRequest(string body)
+        public static string UserRequest(string body, DBConnector db)
         {
             try
             {
@@ -114,7 +120,7 @@ namespace MonsterTCG
             }
         }
 
-        public static string SessionRequest(string body)
+        public static string SessionRequest(string body, DBConnector db)
         {
             try
             {
@@ -158,7 +164,7 @@ namespace MonsterTCG
             }
         }
     
-        public static string CreatePackageRequest(string body) //TODO AUTH FOR ADMIN!!!!!
+        public static string CreatePackageRequest(string body, DBConnector db) //TODO AUTH FOR ADMIN!!!!!
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
@@ -194,7 +200,7 @@ namespace MonsterTCG
             return "HTTP/1.1 400 - wrong Format";
         }
 
-        public static string ShowPackageRequest(string body) 
+        public static string ShowPackageRequest(DBConnector db) 
         {
             string AllPackages = db.getAllPacks();
             if (AllPackages.Length > 0)
@@ -207,7 +213,7 @@ namespace MonsterTCG
             }
         }
     
-        public static string BuyPackage(string body) 
+        public static string BuyPackage(string body, DBConnector db) 
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
@@ -229,13 +235,13 @@ namespace MonsterTCG
             }
         }
     
-        public static string GetScore(string body) 
+        public static string GetScore(DBConnector db) 
         {
             string bestPlayers = db.DBGetBestPlayers();
             return "HTTP/1.1 201 OK\n" + bestPlayers;
         }
 
-        public static string ChangeUserData(string body) 
+        public static string ChangeUserData(string body, DBConnector db) 
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
@@ -263,7 +269,7 @@ namespace MonsterTCG
             }
         }
 
-        public static string ShowProfile(string body)
+        public static string ShowProfile(string body, DBConnector db)
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
@@ -278,7 +284,7 @@ namespace MonsterTCG
             return "HTTP/1.1 600 - Authentication Failed";
         }
 
-        public static string ShowDeck(string body) 
+        public static string ShowDeck(string body, DBConnector db) 
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
@@ -295,7 +301,7 @@ namespace MonsterTCG
             }
         }
     
-        public static string EditDeck(string body)
+        public static string EditDeck(string body, DBConnector db)
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
@@ -322,6 +328,42 @@ namespace MonsterTCG
             return "HTTP/1.1 600 - Authentication Failed";
         }
     
-        
+        public static string Queue(string body, DBConnector db) 
+        {
+            JsonDocument jsonDocument = JsonDocument.Parse(body);
+            JsonElement json = jsonDocument.RootElement;
+            string Token = json.GetProperty("token").GetString();
+            int id = db.DBAuth(Token);
+            if (id >= 0) //Authed
+            {
+                //check if atleast 1 Card is in Cards with id
+                BattleLogic.AddPlayerToQueue(id);
+                (int,int)? result = BattleLogic.StartBattle();
+                if(result != null) 
+                {
+                    User user1 = db.DBgetFullUserByID(result.Value.Item1);
+                    User user2 = db.DBgetFullUserByID(result.Value.Item2);
+                    tempCard[] user1Cards = db.DBReturnAllDeckCards(user1.Id);
+                    tempCard[] user2Cards = db.DBReturnAllDeckCards(user2.Id);
+                    (int, string) battleinfo =BattleLogic.Fight(user1,user2,user1Cards,user2Cards); //return 2 = player 1 won, return 1 = player 1 won, return 0 = draw.
+                    if(battleinfo.Item1 == 1) //ELO anpassen!
+                    {//player 1 won
+                        db.DBChangeElo(user1.Id, 5);
+                        db.DBChangeElo(user2.Id, -3);
+                        return "HTTP/1.1 201 OK \n" + battleinfo.Item2; 
+                    } 
+                    else if(battleinfo.Item1 == 2)
+                    { //player 2 won
+                        db.DBChangeElo(user2.Id, 5);
+                        db.DBChangeElo(user1.Id, -3);
+                        return "HTTP/1.1 201 OK \n" + battleinfo.Item2; //warum kann ich kein \n mitgeben????
+                    } 
+                    else { return "HTTP/1.1 201 OK "; }
+                }
+                return "HTTP/1.1 201 OK - no second player yet";
+
+            }
+                return "HTTP/1.1 600 - Authentication Failed";
+        }
     }
 }
