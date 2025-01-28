@@ -9,7 +9,7 @@ namespace MonsterTCG
     internal class Handler
     {
         private static DBConnector _db = new DBConnector();
-
+        //some could have been get...
         private const string USER_REQUEST_TEXT = "POST /users";
         private const string SESSION_REQUEST_TEXT = "POST /sessions";
         private const string CREATE_PACKAGE_TEXT = "POST /createpackage";
@@ -21,7 +21,6 @@ namespace MonsterTCG
         private const string PROFILE = "POST /profile";
         private const string EDIT_DECK = "POST /editdeck";
         private const string QUEUE = "POST /queue";
-        //show my stats = get userbyID und dann einfach user ausgeben!
 
         public static string HandleRequest(string request, string body)
         {
@@ -100,18 +99,6 @@ namespace MonsterTCG
                         return "HTTP/1.1 201 OK";
                     }
                 } else { return "HTTP/1.1 400 - wrong Format"; }
-                /* OLD CODE FOR LOCAL DB!!!!
-                User userSet = Database.Temp_Database.FirstOrDefault(u => u.UserName == UserName);
-                if (userSet == null)
-                {
-                    Database.Temp_Database.Add(new User(UserName, Password));
-                    return "HTTP/1.1 201 OK";
-                }
-                else
-                {
-                    return "HTTP/1.1 400 - User already exists";
-                }
-                */
             }
             catch (Exception ex)
             {

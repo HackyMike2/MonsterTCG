@@ -13,7 +13,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © CK 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
+//for unit testing:
+[assembly: InternalsVisibleTo("MonsterTCG-Test")]
 // Durch Festlegen von ComVisible auf FALSE werden die Typen in dieser Assembly
 // für COM-Komponenten unsichtbar.  Wenn Sie auf einen Typ in dieser Assembly von
 // COM aus zugreifen müssen, sollten Sie das ComVisible-Attribut für diesen Typ auf "True" festlegen.

@@ -242,9 +242,9 @@ namespace MonsterTCG
             return id;
         }
 
-        public void buyPack(string PlayerUsername, int packid,int userid) //TODO!
+        public void buyPack(string PlayerUsername, int packid,int userid) //TODO! HAS HE ENOUGH COINS? TODO!!!!!
         {
-            Console.WriteLine("We are in buyPack!"); //DEBUG!
+            //Console.WriteLine("We are in buyPack!"); //DEBUG!
             Random rnd = new Random();
             //count how many Cards are in the pack i want to buy(packid)
             int PackCount = DBgetCountOfPack(packid);

@@ -35,7 +35,6 @@ namespace MonsterTCG
             Console.WriteLine(myUser.Collection.Count);
             */
             #endregion //is commented out
-
             #region debug2-DB Connections
             //db.DBAddCardToPlayerCollection("kienboec", 9);
             //db.DBTestConnection();
@@ -62,17 +61,13 @@ namespace MonsterTCG
             //Console.WriteLine(answer);
             //Console.WriteLine("Those are the Userdatas\nID:{0},Username:{1},PW:{2},Coins:{3},Elo:{4},Token:{5}", user.Id, user.UserName, user.Password, user.Coins.ToString(),user.Elo.ToString(),user.SecurityToken);
             #endregion
-
-            #region TestBattle
-
-            #endregion
             Console.WriteLine("Starting HTTP server...");
             HTTP Server = new HTTP();
             Server.StartServer();
             
             while (true)
             {
-                // do nothing
+                // do nothing, is that the server does not shut down.
             }
         }
 
