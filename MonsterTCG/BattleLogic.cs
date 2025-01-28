@@ -10,10 +10,10 @@ using static MonsterTCG.ListMaster;
 
 namespace MonsterTCG //thank god Stack overflow exists.
 {
-    public class WaitingPlayers
+    /*public class WaitingPlayers
     {
         public int Id { get; set; } // Player ID
-    }
+    }*/
 
     public static class BattleLogic
     {
@@ -25,9 +25,20 @@ namespace MonsterTCG //thank god Stack overflow exists.
             Console.WriteLine("Player {0} added to the queue.",playerId);
         }
 
+        public static ConcurrentQueue<int> GetQueue() 
+        {
+            return waitingQueue;
+        }
+
+        public static void SetQueue() 
+        {
+            waitingQueue = new ConcurrentQueue<int>();
+        }
+
         public static (int, int)? StartBattle()
         {
-            if (waitingQueue.Count > 1)
+            var queueArray = waitingQueue.ToArray();
+            if (waitingQueue.Count > 1 && queueArray[0] != queueArray[1])
             {
                 if (waitingQueue.TryDequeue(out int player1) && waitingQueue.TryDequeue(out int player2)) //er dequed mir automatisch immer player 1...
                 {
@@ -39,12 +50,12 @@ namespace MonsterTCG //thank god Stack overflow exists.
             return null;
         }
 
-
         public static (int, string) Fight(User user1, User user2, tempCard[] user1Cards, tempCard[] user2Cards) 
         {
             //Console.WriteLine("I am in Fight!"); //DEBUG!!! 
             string Log = ""; 
             int round = 0; 
+            if(user1Cards.Length == 0 && user2Cards.Length == 0) { return (0, Log); }
             if(user1Cards.Length == 0) { return (2, Log); } 
             if (user2Cards.Length == 0) { return (1, Log); }
             //aufpassen dass kein null dabei ist!
@@ -99,8 +110,7 @@ namespace MonsterTCG //thank god Stack overflow exists.
 
         public static int FightLogic(tempCard user1FightCard, tempCard user2FightCard) 
         {
-            //FightLogicClass newFightLogic = new FightLogicClass(); this for multithreading?and do both Fight and FightLogic in there
-            if (user1FightCard.Species != 8 && user2FightCard.Species != 8) //MonsterFight, element is egal, nur special dings schauen
+            if (user1FightCard.Species != 8 && user2FightCard.Species != 8) //MonsterFight, element is egal, nur special schauen
             {
                 if(user1FightCard.Species == 0 && user2FightCard.Species == 7 ) { return 0; }
                 if(user1FightCard.Species == 2 && user2FightCard.Species == 1 ) { return 0; }

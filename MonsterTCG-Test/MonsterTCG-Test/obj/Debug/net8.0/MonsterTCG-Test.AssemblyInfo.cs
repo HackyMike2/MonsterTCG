@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MonsterTCG-Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d60e7fedea48a56da83ae645a1a95e9bf5c74da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ac6eb14ef8befd33c41c1b4c5c9c321404c6939")]
 [assembly: System.Reflection.AssemblyProductAttribute("MonsterTCG-Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MonsterTCG-Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

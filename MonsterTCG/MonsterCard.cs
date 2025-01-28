@@ -18,7 +18,7 @@ namespace MonsterTCG
 
 
 
-        public override float CalculateDamage(Card opponent)
+        public override float CalculateDamage(Card opponent) // NOT USED ANYMORE!
         {
             // if(Name.Contains("")) //kein guter ansatz. species wurde dafür hinzugefügt.
             //Console.WriteLine(Species.ToString()); //DEBUG!

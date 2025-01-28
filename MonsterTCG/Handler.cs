@@ -151,31 +151,39 @@ namespace MonsterTCG
             }
         }
     
-        public static string CreatePackageRequest(string body, DBConnector db) //TODO AUTH FOR ADMIN!!!!!
+        public static string CreatePackageRequest(string body, DBConnector db) 
         {
             JsonDocument jsonDocument = JsonDocument.Parse(body);
             JsonElement json = jsonDocument.RootElement;
             string name = json.GetProperty("name").GetString();
             int cost = json.GetProperty("cost").GetInt32();
+            string token = json.GetProperty("token").GetString();
             // hier noch den array dazubekommen!!
             Console.WriteLine("name:{0}, cost:{1}", name, cost.ToString());
             //zuerst neues pack erstellen, mit namen und kosten
             if (name != null && cost != null)
             {
-                int packID = db.DBCreatePack(name, cost);
-                if (!(packID == -1))
-                {//funktioniert!
-                    foreach (JsonElement card in json.GetProperty("cards").EnumerateArray())
-                    {
-                        //Console.WriteLine("Test test, ich bin in cards. sollte 3 mal kommen");
-                        db.DBFillPack(packID, card.GetInt32());
+                if (token == "admin-mtcgToken")
+                {
+                    int packID = db.DBCreatePack(name, cost);
+                    if (!(packID == -1))
+                    {//funktioniert!
+                        foreach (JsonElement card in json.GetProperty("cards").EnumerateArray())
+                        {
+                            //Console.WriteLine("Test test, ich bin in cards. sollte 3 mal kommen");
+                            db.DBFillPack(packID, card.GetInt32());
+                        }
+                        return "HTTP/1.1 201 OK";
                     }
-                    return "HTTP/1.1 201 OK";
+                    else
+                    {//something went wrong
+                        Console.WriteLine("the DBCreatePack function does not work!");
+                        return "HTTP/1.1 500 Internal Server Error";
+                    }
                 }
-                else
-                {//something went wrong
-                    Console.WriteLine("the DBCreatePack function does not work!");
-                    return "HTTP/1.1 500 Internal Server Error";
+                else 
+                {
+                    return "HTTP/1.1 600 - Authentication Failed";
                 }
 
             }
@@ -213,7 +221,7 @@ namespace MonsterTCG
             {
                 Console.WriteLine("this user is authorized!");
                 User thisuser = db.getFullUserBytoken(token);
-                db.buyPack(thisuser.UserName, Packid, thisuser.Id);
+                db.buyPack(thisuser.UserName, Packid, thisuser.Id,thisuser);
                 return "HTTP/1.1 201 OK";
             }
             else
@@ -333,7 +341,7 @@ namespace MonsterTCG
                     tempCard[] user1Cards = db.DBReturnAllDeckCards(user1.Id);
                     tempCard[] user2Cards = db.DBReturnAllDeckCards(user2.Id);
                     (int, string) battleinfo =BattleLogic.Fight(user1,user2,user1Cards,user2Cards); //return 2 = player 1 won, return 1 = player 1 won, return 0 = draw.
-                    if(battleinfo.Item1 == 1) //ELO anpassen!
+                    if(battleinfo.Item1 == 1) 
                     {//player 1 won
                         db.DBChangeElo(user1.Id, 5);
                         db.DBChangeElo(user2.Id, -3);
@@ -343,7 +351,7 @@ namespace MonsterTCG
                     { //player 2 won
                         db.DBChangeElo(user2.Id, 5);
                         db.DBChangeElo(user1.Id, -3);
-                        return "HTTP/1.1 201 OK \n" + battleinfo.Item2; //warum kann ich kein \n mitgeben????
+                        return "HTTP/1.1 201 OK \n" + battleinfo.Item2; 
                     } 
                     else { return "HTTP/1.1 201 OK "; }
                 }

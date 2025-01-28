@@ -67,7 +67,7 @@ namespace MonsterTCG
             
             while (true)
             {
-                // do nothing, is that the server does not shut down.
+                // do nothing, so that the server does not shut down.
             }
         }
 

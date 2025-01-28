@@ -18,7 +18,7 @@ namespace MonsterTCG
             connectionstring = "Host=localhost;Port=9009;Username=postgres;Password=postgres;Database=Monster_TCG";
         }
 
-        public void DBTestConnection()
+        public string DBTestConnection()
         {
             try
             {
@@ -26,10 +26,12 @@ namespace MonsterTCG
                 connection.Open();
                 Console.WriteLine("Connection to the database is sucessful!");
                 connection.Close();
+                return "Connection to the database is sucessful!";
             }
             catch
             {
                 Console.WriteLine("an error occured while trying to connect to the database");
+                return "an error occured while trying to connect to the database";
             }
 
 
@@ -200,7 +202,7 @@ namespace MonsterTCG
 
         }
 
-        public string getAllPacks() 
+        public virtual string getAllPacks() 
         {
             string answer = "";
             string queryString = "SELECT name, cost FROM packs;";
@@ -242,25 +244,23 @@ namespace MonsterTCG
             return id;
         }
 
-        public void buyPack(string PlayerUsername, int packid,int userid) //TODO! HAS HE ENOUGH COINS? TODO!!!!!
+        public void buyPack(string PlayerUsername, int packid,int userid, User user)
         {
-            //Console.WriteLine("We are in buyPack!"); //DEBUG!
             Random rnd = new Random();
-            //count how many Cards are in the pack i want to buy(packid)
             int PackCount = DBgetCountOfPack(packid);
-            Console.WriteLine("the Count of Pack is:{0}", PackCount);
-            if (PackCount > 0)
+            //Console.WriteLine("the Count of Pack is:{0}", PackCount);
+            if (PackCount > 0 && user.Coins > 10)
             {
                 //random number from 0 to Count-1
                 int Cardnumber = rnd.Next(0,PackCount);
-                Console.WriteLine("The Cardnumber is {0}", Cardnumber.ToString());
+                //Console.WriteLine("The Cardnumber is {0}", Cardnumber.ToString());
                 //get the id of a random card from that pack
                 
                 int CardID = DBGetCardIdFromPack(packid, Cardnumber);
-                Console.WriteLine("The CardID is:{0}", CardID);
+                //Console.WriteLine("The CardID is:{0}", CardID);
                 DBAddCardToPlayerCollection(PlayerUsername, CardID);
-                Console.WriteLine("The player with the username:{0} and the id of {1} has gotten the card with the id of {2}", PlayerUsername, userid.ToString(), CardID.ToString());
-                
+                //Console.WriteLine("The player with the username:{0} and the id of {1} has gotten the card with the id of {2}", PlayerUsername, userid.ToString(), CardID.ToString());
+                DBChangeCoins(user.Id);
             } 
         }
 
@@ -290,11 +290,23 @@ namespace MonsterTCG
             string querystring = "UPDATE tcguser SET username = @newname WHERE id = @id";
             NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
             connection.Open();
-            Console.WriteLine("The id is{0}, and the new Username should be:{1}",id,newUsername);
+            //Console.WriteLine("The id is{0}, and the new Username should be:{1}",id,newUsername);
             using (var cmd = new NpgsqlCommand(querystring, connection))
             {
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.Parameters.AddWithValue("newname",newUsername);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DBChangeCoins(int id) 
+        {
+            string querystring = "UPDATE tcguser SET coins = coins - 10 WHERE id = @id";
+            NpgsqlConnection connection = new NpgsqlConnection(connectionstring);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand(querystring, connection))
+            {
+                cmd.Parameters.AddWithValue("id", id);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -551,7 +563,7 @@ namespace MonsterTCG
         }
 
         //EditDeck
-        public int DBEditDeck(int id, int[] cards) //TODO! FUNKTIONIERT NOCH NICHT 100%!!!
+        public int DBEditDeck(int id, int[] cards)
         {
             string querystring = "SELECT COUNT(*) FROM collection WHERE userid = @userid";
             int cardcount = 0;
@@ -573,7 +585,6 @@ namespace MonsterTCG
                     cmd.Parameters.AddWithValue("userid", id);
                     cmd.ExecuteNonQuery();
                 }
-                //Console.WriteLine("the old cards were deleted");
 
                 //step 3: retrieve card ids.
 

@@ -43,10 +43,10 @@ namespace MonsterTCG
             SecurityToken = securitytoken;
         }
 
-        public void AddCoins(int amount) { Coins += amount; } //just for winning or loosing coins
+       // public void AddCoins(int amount) { Coins += amount; } //just for winning or loosing coins
 
-        public void UpdateElo(int amount)
-        { if (!(Elo + amount < 0)) { Elo += amount; } } // can also be negative, dont go under 0!
+     //   public void UpdateElo(int amount)
+      //  { if (!(Elo + amount < 0)) { Elo += amount; } } // can also be negative, dont go under 0!
 
         public string GenerateToken()
         {
@@ -55,7 +55,7 @@ namespace MonsterTCG
             return token;
         }
 
-        public bool CompareToken(string token1) { if (token1 == SecurityToken) { return true; } else { return false; }; } //if the User wants to do anything, and we need to check if he really is who he says he is.
+       // public bool CompareToken(string token1) { if (token1 == SecurityToken) { return true; } else { return false; }; } //if the User wants to do anything, and we need to check if he really is who he says he is.
 
        /* public void buyPack()
         {

@@ -16,7 +16,7 @@ namespace MonsterTCG
         public override float CalculateDamage(Card opponent)
         {
             Console.WriteLine("Spell");
-            return Damage; /*Damage calkulieren*/
+            return Damage;
         }
     }
 }

@@ -103,7 +103,6 @@ namespace MonsterTCG
         private static string GetRequestBody(StreamReader reader, int contentLength)
         {
             string body = string.Empty;
-
             if (contentLength > 0)
             {
                 char[] buffer = new char[contentLength];
@@ -115,7 +114,7 @@ namespace MonsterTCG
             return body;
         }
 
-        private static int GetContentLength(StreamReader reader)
+        public static int GetContentLength(StreamReader reader)
         {
             string line = string.Empty;
 
